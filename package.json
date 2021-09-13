@@ -1,0 +1,16 @@
+{
+  "name": "backend_storetopup",
+  "version": "1.0.0",
+  "description": "backend web store top up",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "author": "byhil dev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.5.3"
+  }
+}
