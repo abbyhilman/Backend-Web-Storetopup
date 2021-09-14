@@ -1,17 +1,30 @@
-const http = require('http');
-const faker = require('faker');
+const express = require('express');
+const cors = require('cors');
+const router = require('./route');
+const app = express();
+const port = 3003;
 
-const randomName = faker.name.findName(); // Rowan Nikolaus
+app.use(cors());
+app.use(express.json());
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end(randomName);
+app.get('/', (req, res) => {
+  res.status(200).send('Hello World!');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+// app.post('/', function (req, res) {
+//   res.send('Got a POST request');
+// });
+
+// app.put('/user', function (req, res) {
+//   res.send('Got a PUT request at /user');
+// });
+
+// app.delete('/user', function (req, res) {
+//   res.send('Got a DELETE request at /user');
+// });
+
+app.use(router);
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
